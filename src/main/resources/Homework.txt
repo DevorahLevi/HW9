@@ -1,0 +1,6 @@
+Hello my name is Devorah Levi
+Today I am doing Java Homework
+Read words from a text file
+Place words from each sentence in an ArrayList
+Then add each sentence to an ArrayList
+Result is an ArrayList of ArrayLists
