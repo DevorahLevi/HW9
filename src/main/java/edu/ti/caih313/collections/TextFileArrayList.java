@@ -27,7 +27,7 @@ public class TextFileArrayList
         int sentenceNumber = keyboard.nextInt();
         int wordNumber = keyboard.nextInt();
         if ((sentenceNumber > textFile.size()) || (wordNumber > textFile.get(sentenceNumber).size()) ||
-                (sentenceNumber == 0) || (wordNumber == 0))
+                (sentenceNumber <= 0) || (wordNumber <= 0))
         {
             System.out.println("Sorry, the number you have entered is an invalid position number.");
         }
@@ -39,7 +39,6 @@ public class TextFileArrayList
             String word = sentence.get(wordNumber);
             System.out.println(word);
         }
-
     }
 
     public static List<List> getArrayListOfArrayLists()
@@ -47,7 +46,7 @@ public class TextFileArrayList
         List<List> sentencesList = new ArrayList<List>();
 
         String resourceFolder = "src/main/resources";
-        String fileName = resourceFolder + "/" + "Homework.txt";
+        String fileName = resourceFolder + "/" + "sample_text.txt";
 
         Scanner inputStream = null;
         try
@@ -55,16 +54,23 @@ public class TextFileArrayList
             File file = new File(fileName);
             inputStream = new Scanner(file);
 
+            String fileString = "";
             while(inputStream.hasNextLine())
             {
-               List<String> wordList = new ArrayList<String>();
-               String line = inputStream.nextLine();
-               String [] words = line.split(" ");
-               for (int i = 0; i < words.length; i++)
-               {
-                   wordList.add(words[i]);
-               }
-               sentencesList.add(wordList);
+                fileString += (inputStream.nextLine() + " ");
+            }
+            String [] fileSentences = fileString.split("(?<=[.!?])\\s*");
+            for (int i = 0; i < fileSentences.length; i++)
+            {
+                String sentence = fileSentences[i];
+                String [] words = sentence.split(" ");
+
+                List<String> wordList = new ArrayList<String>();
+                for (int j = 0; j < words.length; j++)
+                {
+                    wordList.add(words[j]);
+                }
+                sentencesList.add(wordList);
             }
         }
         catch (FileNotFoundException e)
