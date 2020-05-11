@@ -33,8 +33,6 @@ public class TextFileArrayList
         }
         else
         {
-            //sentenceNumber--;
-            //wordNumber--;
             List<String> sentence = textFile.get(sentenceNumber);
             String word = sentence.get(wordNumber);
             System.out.println(word);
