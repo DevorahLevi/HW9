@@ -26,8 +26,8 @@ public class TextFileArrayList
         System.out.println("Enter a sentence number followed by a word number and that word will be displayed.");
         int sentenceNumber = keyboard.nextInt() - 1;
         int wordNumber = keyboard.nextInt() - 1;
-        if ((sentenceNumber > (textFile.size() - 1)) || (wordNumber > (textFile.get(sentenceNumber).size() - 1)) ||
-                (sentenceNumber < 0) || (wordNumber < 0))
+        if ( (sentenceNumber < 0) || (wordNumber < 0) ||
+                (sentenceNumber > (textFile.size() - 1)) || (wordNumber > (textFile.get(sentenceNumber).size() - 1)) )
         {
             System.out.println("Sorry, the number you have entered is an invalid position number.");
         }
