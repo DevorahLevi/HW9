@@ -24,17 +24,17 @@ public class TextFileArrayList
 
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Enter a sentence number followed by a word number and that word will be displayed.");
-        int sentenceNumber = keyboard.nextInt();
-        int wordNumber = keyboard.nextInt();
-        if ((sentenceNumber > textFile.size()) || (wordNumber > textFile.get(sentenceNumber).size()) ||
-                (sentenceNumber <= 0) || (wordNumber <= 0))
+        int sentenceNumber = keyboard.nextInt() - 1;
+        int wordNumber = keyboard.nextInt() - 1;
+        if ((sentenceNumber > (textFile.size() - 1)) || (wordNumber > (textFile.get(sentenceNumber).size() - 1)) ||
+                (sentenceNumber < 0) || (wordNumber < 0))
         {
             System.out.println("Sorry, the number you have entered is an invalid position number.");
         }
         else
         {
-            sentenceNumber--;
-            wordNumber--;
+            //sentenceNumber--;
+            //wordNumber--;
             List<String> sentence = textFile.get(sentenceNumber);
             String word = sentence.get(wordNumber);
             System.out.println(word);
